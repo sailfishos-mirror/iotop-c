@@ -42,7 +42,7 @@ static inline int _read_task_delayacct(int *da) {
 		return ENODATA;
 	}
 	buf[bs]=0;
-	*da=strtoull(buf,&t,10);
+	*da=strtol(buf,&t,10);
 	if (*t!='\n') {
 		close(fd);
 		return ENODATA;
