@@ -119,8 +119,8 @@ inline void read_cmdlines(int pid,char **cmd_long,char **cmd_short,char **cmd_co
 		if (p>0) {
 			dbuf[p]=0;
 
-			while (strlen(dbuf)&&dbuf[strlen(dbuf)-1]=='\n') // trim newline(s) from the end
-				dbuf[strlen(dbuf)-1]=0;
+			while (p>0&&dbuf[p-1]=='\n') // trim newline(s) from the end
+				dbuf[--p]=0;
 
 			if (*cmd_short&&strcmp(*cmd_short,dbuf))
 				*cmd_comm=dbuf; // thread with different name
